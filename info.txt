@@ -1,3 +1,5 @@
 # Watching this MERN Project from a Dave Gray YT tutorial of MERN stack 
 
 # Day 1 - worked with the configs logs middleware and models folder structures 
+
+# Day 2 - Didnt worked because of the project review in the college and feeling little low today 
