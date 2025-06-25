@@ -8,7 +8,7 @@ const bcrypt = require('bcrypt')
 // @access Private
 const getAllUsers = asyncHandler(async (req,resp)=>{
     const users = await User.find().select('-password').lean()
-    if(!users){
+    if(!users?.length){
         return resp.status(400).json({message: "No users found !"})
     }
     resp.json(users)
@@ -38,7 +38,7 @@ const createNewUser = asyncHandler(async (req,resp)=>{
     const userObject = { username, "password":hashedPwd, roles}
 
     // Crete and store new user 
-    const user = await User.cretae(userObject)
+    const user = await User.create(userObject)
 
     if(user)
     {
@@ -55,13 +55,14 @@ const createNewUser = asyncHandler(async (req,resp)=>{
 const updateUser = asyncHandler(async (req,resp)=>{
     const {id, username, roles, active, password } = req.body;
     if(!id || !username || !Array.isArray(roles) || !roles.length || typeof active !== 'boolean'){
+        console.log('BODY:', req.body);
         return resp.status(400).json({message : 'All fields are required !'})
     }
 
-    const user = await User.findById(id).exex()
+    const user = await User.findById(id).exec()
 
     if(!user){
-        return resp.status(400).json({message : 'user not. found'})
+        return resp.status(400).json({message : 'user not found'})
     }
 
     // Duplicate check
@@ -85,32 +86,34 @@ const updateUser = asyncHandler(async (req,resp)=>{
 
     resp.json({ message: `${updatedUser.username} Updated !`})
 
-})
+});
 
 // @desc Delete a user
 // @route Patch /users
 // @access Private
-const deleteUser = asyncHandler(async (req,resp)=>{
-    const { id } = req.body
-    if(!id){
-        return resp.status(400).json({message: ' User Id required !'})
-    }
+const deleteUser = asyncHandler(async (req, res) => {
+  const { id } = req.body;
 
-    const notes = await Note.findOne({user: id}).lean().exec()
-    if(notes?.length){
-        return resp.status(400).json({message: 'User has assigned notes'})
-    }
+  if (!id) {
+    return res.status(400).json({ message: 'User ID required!' });
+  }
 
-    const user = await User.findById(id).exec()
+  const note = await Note.findOne({ user: id }).lean().exec();
+  if (note) {
+    return res.status(400).json({ message: 'User has assigned notes' });
+  }
 
-    if(!user){
-        return resp.status(400).json({message: 'User not found !'});
-    }
+  const user = await User.findById(id).exec();
+  if (!user) {
+    return res.status(400).json({ message: 'User not found!' });
+  }
 
-    const result = await user.deleteOne()
+  await user.deleteOne(); // 🔥 deletion happens here
 
-    const reply = `Username ${result.username} with ID ${result._id} deleted`
-})
+  const reply = `Username ${user.username} with ID ${user._id} deleted`; // ✅ this works
+
+  res.json({ message: reply });
+});
 
 module.exports = {
     getAllUsers,
