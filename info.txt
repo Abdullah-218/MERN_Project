@@ -3,3 +3,5 @@
 # Day 1 - worked with the configs logs middleware and models folder structures 
 
 # Day 2 - Didnt worked because of the project review in the college and feeling little low today 
+
+# Day 3 - Tetsing the updated code with the postman 
