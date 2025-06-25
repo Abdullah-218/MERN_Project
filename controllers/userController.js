@@ -1,12 +1,12 @@
-const User = require('.../models/User')
-const Note = require('.../models/Note')
+const User = require('../models/User')
+const Note = require('../models/Note')
 const asyncHandler = require('express-async-handler')
 const bcrypt = require('bcrypt')
 
 // @desc Get all users
 // @route GET /users
 // @access Private
-const getAllUsers = asyncHandler(async (requestAnimationFrame,resp)=>{
+const getAllUsers = asyncHandler(async (req,resp)=>{
     const users = await User.find().select('-password').lean()
     if(!users){
         return resp.status(400).json({message: "No users found !"})
@@ -17,7 +17,7 @@ const getAllUsers = asyncHandler(async (requestAnimationFrame,resp)=>{
 // @desc Create new user
 // @route Post /users
 // @access Private
-const createNewUser = asyncHandler(async (requestAnimationFrame,resp)=>{
+const createNewUser = asyncHandler(async (req,resp)=>{
     const { username, password, roles } = req.body;
 
     // Confirms data
@@ -52,7 +52,7 @@ const createNewUser = asyncHandler(async (requestAnimationFrame,resp)=>{
 // @desc Update a user
 // @route Patch /users
 // @access Private
-const updateUser = asyncHandler(async (requestAnimationFrame,resp)=>{
+const updateUser = asyncHandler(async (req,resp)=>{
     const {id, username, roles, active, password } = req.body;
     if(!id || !username || !Array.isArray(roles) || !roles.length || typeof active !== 'boolean'){
         return resp.status(400).json({message : 'All fields are required !'})
@@ -90,7 +90,7 @@ const updateUser = asyncHandler(async (requestAnimationFrame,resp)=>{
 // @desc Delete a user
 // @route Patch /users
 // @access Private
-const deleteUser = asyncHandler(async (requestAnimationFrame,resp)=>{
+const deleteUser = asyncHandler(async (req,resp)=>{
     const { id } = req.body
     if(!id){
         return resp.status(400).json({message: ' User Id required !'})
