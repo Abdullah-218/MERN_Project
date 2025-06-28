@@ -7,3 +7,8 @@ MERN fullstack :
 4. Learn the installation commands 
 
 // npm i @reduxjs/toolkit react-redux - command for redux and react redux inside frontend folder
+
+// Add the data to database using POSTMAN API method and check the parameters
+
+// Run the backend server first and then run frontend 
+
