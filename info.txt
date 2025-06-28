@@ -5,3 +5,5 @@ MERN fullstack :
 3. Create a frontend folder using react 
 
 4. Learn the installation commands 
+
+// npm i @reduxjs/toolkit react-redux - command for redux and react redux inside frontend folder
