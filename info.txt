@@ -1,7 +1,7 @@
-# Watching this MERN Project from a Dave Gray YT tutorial of MERN stack 
+MERN fullstack : 
 
-# Day 1 - worked with the configs logs middleware and models folder structures 
+1. Build the backend code with node.js and express
+2. Connect the MongoDB with server
+3. Create a frontend folder using react 
 
-# Day 2 - Didnt worked because of the project review in the college and feeling little low today 
-
-# Day 3 - Tetsing the updated code with the postman 
+4. Learn the installation commands 
