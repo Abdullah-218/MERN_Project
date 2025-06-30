@@ -12,3 +12,7 @@ MERN fullstack :
 
 // Run the backend server first and then run frontend 
 
+// IN lesson 8 - backend authentication and authorization
+
+// AUTHENTICATION - Verying who is the person...someone who is trying to login 
+// AUTHORIZATION - Accessing the resources which is only assigned to them
