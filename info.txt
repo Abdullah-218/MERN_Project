@@ -16,3 +16,5 @@ MERN fullstack :
 
 // AUTHENTICATION - Verying who is the person...someone who is trying to login 
 // AUTHORIZATION - Accessing the resources which is only assigned to them
+
+// Doing the lesson 11 - role based access
