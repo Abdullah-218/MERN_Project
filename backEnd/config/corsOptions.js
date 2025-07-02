@@ -1,16 +1,15 @@
-const { options } = require('../routes/root');
-const allowedOrigins = require ('./allowedOrigins');
+const allowedOrigins = require('./allowedOrigins')
 
 const corsOptions = {
-    origin : (origin, callback) => {
-        if(allowedOrigins.indexOf(origin) !== -1 || !origin) {
-            callback(null, true);
-        }else{
-            callback(new Error('Not allowed by CORS'));
+    origin: (origin, callback) => {
+        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
         }
     },
-    credentials : true, 
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    credentials: true,
+    optionsSuccessStatus: 200
 }
 
-module.exports = corsOptions;
+module.exports = corsOptions 
