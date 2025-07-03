@@ -20,3 +20,11 @@ MERN fullstack :
 // Doing the lesson 11 - role based access
 
 // Doing the refactoring 
+
+// Deploying in Render site
+
+// for frontend choose - Static site
+
+// for backend choose - web browser
+
+// I am getting error not working for now deployment
