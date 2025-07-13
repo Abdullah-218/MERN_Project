@@ -56,3 +56,81 @@ E-Commerence Management/
 ├── package.json
 └── README.md
 ```
+---
+
+## 🔧 Tech Stack
+
+### Frontend:
+- React.js
+- Redux Toolkit
+- RTK Query
+- React Router
+
+### Backend: 
+- Node.js
+- Express.js
+- MongoDB with Mongoose
+
+### Authentication: 
+- JWT (Access + Refresh Tokens)
+- **Styling**:
+- Custom CSS (can be extended to Tailwind/Bootstrap)
+  
+### Logging:
+- Custom request and error logs
+  
+### Security:
+- Rate limiting, CORS, custom middleware
+
+---
+
+## ⚙️ Setup Instructions
+
+### 🔧 Backend Setup
+
+```
+cd backend
+npm install
+```
+
+Add your .env file in the backend/ folder:
+
+```
+PORT=3500
+MONGO_URI=your_mongodb_uri
+ACCESS_TOKEN_SECRET=your_access_token
+REFRESH_TOKEN_SECRET=your_refresh_token
+```
+Run the backend:
+
+```
+npm run dev
+```
+
+### 🔧 Frontend Setup
+
+```
+cd frontend
+npm install
+npm start
+```
+
+## 🔐 Role-Based Access Control
+
+| **Role**   | **Capabilities**                              |
+|------------|-----------------------------------------------|
+| Admin      | Full access to all users and notes            |
+| Manager    | Manage employees and notes                    |
+| Employee   | View and update their own assigned notes      |
+
+## 🔐 Authentication & Security
+
+•	JWT tokens issued on login
+•	Refresh tokens stored securely and rotated
+•	Frontend uses localStorage for token persistence
+•	Protected backend routes with role-based middleware
+•	Rate limiting, error logging, and custom CORS policies
+
+___
+
+
