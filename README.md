@@ -1,4 +1,4 @@
-# MERN Role-Based Admin Dashboard
+# MERN Role-Based Service center Admin Dashboard
 
 A full-stack web application built using the **MERN stack (MongoDB, Express, React, Node.js)** that enables **Admins and Managers** to manage **Employees** and their **notes/tasks**, with **role-based access control**, secure APIs, and a responsive user interface.
 
@@ -32,3 +32,27 @@ A full-stack web application built using the **MERN stack (MongoDB, Express, Rea
 ---
 
 ## 📂 Project Structure
+
+```
+E-Commerence Management/
+├── backend/
+│   ├── config/             # DB and CORS config
+│   ├── controllers/        # auth, user, note controllers
+│   ├── middleware/         # JWT, error handler, logger
+│   ├── models/             # User and Note mongoose schemas
+│   ├── routes/             # REST API routes
+│   ├── logs/               # Server log files
+│   ├── views/              # Static HTML views
+│   └── server.js           # Entry point for backend
+├── frontend/
+│   ├── public/
+│   └── src/
+│       ├── app/            # Redux store and api slice
+│       ├── components/     # Layout, headers, footers
+│       ├── config/         # Role config
+│       ├── features/       # auth, notes, users
+│       └── hooks/          # Custom React hooks
+├── .env
+├── package.json
+└── README.md
+```
