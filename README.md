@@ -126,9 +126,13 @@ npm start
 ## 🔐 Authentication & Security
 
 •	JWT tokens issued on login
+
 •	Refresh tokens stored securely and rotated
+
 •	Frontend uses localStorage for token persistence
+
 •	Protected backend routes with role-based middleware
+
 •	Rate limiting, error logging, and custom CORS policies
 
 ___
